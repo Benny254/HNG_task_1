@@ -9,18 +9,16 @@ logger = logging.getLogger(__name__)
 
 # Try importing task_1 module safely
 try:
-    from HNG_task_1 import task_1
+    from HNG_task_1.task_1 import some_function  # Update import based on actual module structure
 except ModuleNotFoundError:
     logger.warning("Module 'task_1' not found. Ensure it is installed and in the correct directory.")
-    task_1 = None  # Handle the missing module scenario
-
+    some_function = None  # Handle missing module scenario
 
 def is_armstrong(number):
     """Check if a number is an Armstrong number."""
     digits = [int(d) for d in str(abs(number))]
     power = len(digits)
     return sum(d ** power for d in digits) == number
-
 
 def get_fun_fact(number):
     """Fetch a fun fact about a number from NumbersAPI."""
@@ -34,7 +32,6 @@ def get_fun_fact(number):
         return "Could not fetch fun fact."
     return "No fact available."
 
-
 def get_data_type(value):
     """Determine the data type of the number."""
     if isinstance(value, int):
@@ -46,7 +43,6 @@ def get_data_type(value):
     elif isinstance(value, bool):
         return "boolean"
     return "unknown"
-
 
 @csrf_exempt
 class ClassifyNumberView(View):
