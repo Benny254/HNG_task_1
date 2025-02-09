@@ -1,8 +1,7 @@
-from django.urls import path
+from django.urls import path # type: ignore
 from .views import ClassifyNumberView
 
 urlpatterns = [
-            path('classify-number', ClassifyNumberView.as_view(), name='classify_number'),
+            path('api/classify-number', ClassifyNumberView.as_view(), name='classify_number'),
 
             ]
-
